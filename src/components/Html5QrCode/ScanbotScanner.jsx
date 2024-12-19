@@ -47,14 +47,16 @@ const ScanbotScanner = () => {
   return (
     <div>
       <h2>QR Code / Barcode Scanner</h2>
-      <div id={qrCodeRegionId} style={{ width: '100%', height: '400px' }}></div>
+      {
+        !scannedResult && <div id={qrCodeRegionId} style={{ width: '100%', height: '400px' }}></div>
+      }
       {scannedResult && (
         <div>
           <h3>Scanned Result:</h3>
           <p>{scannedResult}</p>
         </div>
       )}
-      <button onClick={stopScanner}>Stop Scanning</button>
+      {!scannedResult && <button onClick={stopScanner}>Stop Scanning</button>}
     </div>
   );
 };
