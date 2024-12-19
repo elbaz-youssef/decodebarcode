@@ -9,7 +9,7 @@ const ScanbotScanner = () => {
   // Function to handle the success result of scanning
   const handleScanSuccess = (decodedText, decodedResult) => {
     setScannedResult(decodedText);  // Update state with scanned result
-    console.log(`Scanned Result: ${decodedText}`, decodedResult);
+    alert(`Scanned Result: ${decodedText}`, decodedResult);
     scannerRef.current.stop();  // Stop the scanner once result is found
   };
 
