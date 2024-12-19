@@ -37,7 +37,7 @@ const ScanbotScanner = () => {
     return () => {
       scanner.clear();
     };
-  }, [scannedResult]);
+  }, []);
 
 
   return (
@@ -54,7 +54,7 @@ const ScanbotScanner = () => {
         <div>
           <h3>Scanned Result:</h3>
           <p>{scannedResult}</p>
-          <button onClick={() => setScannedResult('')} id="start scan">Start Scan</button>
+          {/* <button onClick={() => setScannedResult('')} id="start scan">Start Scan</button> */}
         </div>
       )}
 
