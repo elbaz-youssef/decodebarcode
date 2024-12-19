@@ -1,0 +1,62 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { Html5QrcodeScanner } from 'html5-qrcode';
+
+const ScanbotScanner = () => {
+  const [scannedResult, setScannedResult] = useState('');
+  const qrCodeRegionId = "qr-reader";
+  const scannerRef = useRef(null);
+
+  // Function to handle the success result of scanning
+  const handleScanSuccess = (decodedText, decodedResult) => {
+    setScannedResult(decodedText);
+    console.log(`Scanned Result: ${decodedText}`, decodedResult);
+    // Optionally, stop the scanner when a code is detected
+    // scannerRef.current.stop();
+  };
+
+  // Function to handle the error during scanning
+  const handleScanError = (error) => {
+    console.error('Scan Error:', error);
+  };
+
+  // Initialize the scanner when the component is mounted
+  useEffect(() => {
+    const scanner = new Html5QrcodeScanner(
+      qrCodeRegionId,
+      {
+        fps: 10, // Frame rate for scanning
+        qrbox: 250, // Define the QR code scanning box size
+        disableFlip: false, // If true, disables flipping of camera
+      },
+      true
+    );
+
+    scanner.render(handleScanSuccess, handleScanError);
+
+    // Cleanup when the component is unmounted
+    return () => {
+      scanner.clear();
+    };
+  }, []);
+
+  // Function to stop the scanner
+  const stopScanner = () => {
+    scannerRef.current.stop();
+  };
+
+  return (
+    <div>
+      <h2>QR Code / Barcode Scanner</h2>
+      <div id={qrCodeRegionId} style={{ width: '100%', height: '400px' }}></div>
+      {scannedResult && (
+        <div>
+          <h3>Scanned Result:</h3>
+          <p>{scannedResult}</p>
+        </div>
+      )}
+      <button onClick={stopScanner}>Stop Scanning</button>
+    </div>
+  );
+};
+
+export default ScanbotScanner;
