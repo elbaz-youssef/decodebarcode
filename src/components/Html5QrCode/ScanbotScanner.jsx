@@ -37,7 +37,7 @@ const ScanbotScanner = () => {
     return () => {
       scanner.clear();
     };
-  }, []);
+  }, [scannedResult]);
 
 
   return (
