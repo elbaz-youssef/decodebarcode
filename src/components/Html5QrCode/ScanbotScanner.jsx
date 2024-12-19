@@ -8,10 +8,9 @@ const ScanbotScanner = () => {
 
   // Function to handle the success result of scanning
   const handleScanSuccess = (decodedText, decodedResult) => {
-    setScannedResult(decodedText);
+    setScannedResult(decodedText);  // Update state with scanned result
     console.log(`Scanned Result: ${decodedText}`, decodedResult);
-    // Optionally, stop the scanner when a code is detected
-    scannerRef.current.stop();
+    scannerRef.current.stop();  // Stop the scanner once result is found
   };
 
   // Function to handle the error during scanning
@@ -31,32 +30,37 @@ const ScanbotScanner = () => {
       true
     );
 
+    scannerRef.current = scanner;  // Save the scanner reference
     scanner.render(handleScanSuccess, handleScanError);
-
+    console.log("we are scanning");
     // Cleanup when the component is unmounted
     return () => {
       scanner.clear();
     };
   }, []);
 
-  // Function to stop the scanner
-  const stopScanner = () => {
-    scannerRef.current.stop();
-  };
 
   return (
     <div>
       <h2>QR Code / Barcode Scanner</h2>
-      {
-        !scannedResult && <div id={qrCodeRegionId} style={{ width: '100%', height: '400px' }}></div>
-      }
+      
+      {/* Show video feed only if no result has been scanned */}
+      {!scannedResult && (
+        <div id={qrCodeRegionId} style={{ width: '100%', height: '400px' }}></div>
+      )}
+      
+      {/* Show scanned result if a result is available */}
       {scannedResult && (
         <div>
           <h3>Scanned Result:</h3>
           <p>{scannedResult}</p>
         </div>
       )}
-      {!scannedResult && <button onClick={stopScanner}>Stop Scanning</button>}
+
+      {/* Display stop button only if no result is scanned */}
+      {!scannedResult && (
+        <button onClick={() => scannerRef.current.stop()}>Stop Scanning</button>
+      )}
     </div>
   );
 };
