@@ -54,8 +54,11 @@ const ScanbotScanner = () => {
         <div>
           <h3>Scanned Result:</h3>
           <p>{scannedResult}</p>
+          <button onClick={() => setScannedResult('')} id="start scan">Start Scan</button>
         </div>
       )}
+
+      
 
       {/* Display stop button only if no result is scanned */}
       {!scannedResult && (
