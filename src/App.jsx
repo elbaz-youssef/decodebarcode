@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import './App.css'
-import ScanbotScanner from './components/ScanbotScanner'
+import ScanbotScanner from './components/Html5QrCode/ScanbotScanner'
 
 function App() {
   // const [count, setCount] = useState(0)

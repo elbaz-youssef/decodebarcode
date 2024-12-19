@@ -11,7 +11,7 @@ const ScanbotScanner = () => {
     setScannedResult(decodedText);
     console.log(`Scanned Result: ${decodedText}`, decodedResult);
     // Optionally, stop the scanner when a code is detected
-    // scannerRef.current.stop();
+    scannerRef.current.stop();
   };
 
   // Function to handle the error during scanning
