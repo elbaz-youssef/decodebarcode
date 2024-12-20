@@ -34,6 +34,7 @@ const ScanbotScanner = () => {
     scannerRef.current = scanner;  // Save the scanner reference
     scanner.render(handleScanSuccess, handleScanError);
     console.log("we are scanning");
+    console.log("we are trying to be better");
   }
 
   // useEffect(() => {
