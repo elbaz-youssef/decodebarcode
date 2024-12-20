@@ -9,7 +9,7 @@ const ScanbotScanner = () => {
   // Function to handle the success result of scanning
   const handleScanSuccess = (decodedText, decodedResult) => {
     setScannedResult(decodedText);  // Update state with scanned result
-    alert(`Scanned Result: ${decodedText}`, decodedResult);
+    // alert(`Scanned Result: ${decodedText}`, decodedResult);
     scannerRef.current.stop();  // Stop the scanner once result is found
   };
 
@@ -20,6 +20,7 @@ const ScanbotScanner = () => {
 
   // Initialize the scanner when the component is mounted
   const startScan = () => {
+    setScannedResult("");
     const scanner = new Html5QrcodeScanner(
       qrCodeRegionId,
       {
@@ -27,7 +28,7 @@ const ScanbotScanner = () => {
         qrbox: 250, // Define the QR code scanning box size
         disableFlip: false, // If true, disables flipping of camera
       },
-      true
+      false
     );
 
     scannerRef.current = scanner;  // Save the scanner reference
@@ -70,9 +71,9 @@ const ScanbotScanner = () => {
       ) : (
         <>
           <div id={qrCodeRegionId} style={{ width: '100%', height: '400px' }}></div>
-          <button onClick={startScan}>Start Scan</button>
         </>
       )}
+      <button onClick={startScan}>Start Scan</button>
     </div>
   );
 };
