@@ -70,7 +70,7 @@ const ScanbotScanner = () => {
       ) : (
         <>
           <div id={qrCodeRegionId} style={{ width: '100%', height: '400px' }}></div>
-          <button onClick={() => startScan}>Start Scan</button>
+          <button onClick={startScan}>Start Scan</button>
         </>
       )}
     </div>
