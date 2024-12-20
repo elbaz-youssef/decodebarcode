@@ -2,7 +2,7 @@
 
 import './App.css'
 // import ScanbotScanner from './components/Html5QrCode/ScanbotScanner'
-import BarcodeScanComponent from './components/ReactBarCodeScanner/BarcodeScanComponent'
+import BarcodeScanComponent from './components/ReactBarCodeScanner/BarcodeScannerComponent'
 
 function App() {
   // const [count, setCount] = useState(0)
