@@ -58,7 +58,7 @@ const ScanbotScanner = () => {
 
   return (
     <div>
-      <h2>QR Code / Barcode Scanner</h2>
+      <h2>Barcode Scanner</h2>
       
       {/* Show video feed only if no result has been scanned */}
       {scannedResult? (
