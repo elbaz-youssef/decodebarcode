@@ -19,7 +19,7 @@ const ScanbotScanner = () => {
   };
 
   // Initialize the scanner when the component is mounted
-  useEffect(() => {
+  const startScan = () => {
     const scanner = new Html5QrcodeScanner(
       qrCodeRegionId,
       {
@@ -33,11 +33,27 @@ const ScanbotScanner = () => {
     scannerRef.current = scanner;  // Save the scanner reference
     scanner.render(handleScanSuccess, handleScanError);
     console.log("we are scanning");
-    // Cleanup when the component is unmounted
-    return () => {
-      scanner.clear();
-    };
-  }, []);
+  }
+
+  // useEffect(() => {
+  //   const scanner = new Html5QrcodeScanner(
+  //     qrCodeRegionId,
+  //     {
+  //       fps: 10, // Frame rate for scanning
+  //       qrbox: 250, // Define the QR code scanning box size
+  //       disableFlip: false, // If true, disables flipping of camera
+  //     },
+  //     true
+  //   );
+
+  //   scannerRef.current = scanner;  // Save the scanner reference
+  //   scanner.render(handleScanSuccess, handleScanError);
+  //   console.log("we are scanning");
+  //   // Cleanup when the component is unmounted
+  //   return () => {
+  //     scanner.clear();
+  //   };
+  // }, []);
 
 
   return (
@@ -45,24 +61,17 @@ const ScanbotScanner = () => {
       <h2>QR Code / Barcode Scanner</h2>
       
       {/* Show video feed only if no result has been scanned */}
-      {!scannedResult && (
-        <div id={qrCodeRegionId} style={{ width: '100%', height: '400px' }}></div>
-      )}
-      
-      {/* Show scanned result if a result is available */}
-      {scannedResult && (
+      {scannedResult? (
         <div>
           <h3>Scanned Result:</h3>
           <p>{scannedResult}</p>
           {/* <button onClick={() => setScannedResult('')} id="start scan">Start Scan</button> */}
         </div>
-      )}
-
-      
-
-      {/* Display stop button only if no result is scanned */}
-      {!scannedResult && (
-        <button onClick={() => scannerRef.current.stop()}>Stop Scanning</button>
+      ) : (
+        <>
+          <div id={qrCodeRegionId} style={{ width: '100%', height: '400px' }}></div>
+          <button onClick={() => startScan}>Start Scan</button>
+        </>
       )}
     </div>
   );
