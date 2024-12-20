@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
 
 
@@ -8,7 +8,7 @@ const ScanbotScanner = () => {
   const scannerRef = useRef(null);
 
   // Function to handle the success result of scanning
-  const handleScanSuccess = (decodedText, decodedResult) => {
+  const handleScanSuccess = (decodedText) => {
     setScannedResult(decodedText);  // Update state with scanned result
     // alert(`Scanned Result: ${decodedText}`, decodedResult);
     scannerRef.current.stop();  // Stop the scanner once result is found

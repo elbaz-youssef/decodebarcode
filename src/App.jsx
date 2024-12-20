@@ -1,7 +1,7 @@
-import { useState } from 'react'
+
 
 import './App.css'
-import ScanbotScanner from './components/Html5QrCode/ScanbotScanner'
+// import ScanbotScanner from './components/Html5QrCode/ScanbotScanner'
 import BarcodeScanComponent from './components/ReactBarCodeScanner/BarcodeScanComponent'
 
 function App() {

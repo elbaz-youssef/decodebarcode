@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BarcodeScanner } from 'react-qr-barcode-scanner';
+import { useState } from 'react';
+import {BarcodeScanner} from "react-qr-barcode-scanner"
 
 const BarcodeScanComponent = () => {
   const [scanData, setScanData] = useState('');
