@@ -1,8 +1,8 @@
 
 
 import './App.css'
-// import ScanbotScanner from './components/Html5QrCode/ScanbotScanner'
-import BarcodeScanComponent from './components/ReactBarCodeScanner/BarcodeScannerComponent'
+import ScanbotScanner from './components/Html5QrCode/ScanbotScanner'
+import ZxingScanner from './components/ZxingScanner/ZxingScanner'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -10,9 +10,11 @@ function App() {
   return (
     <>
       <div>
-        <h1>Scanbot Barcode Scanner</h1>
+        {/* <h1>Scanbot Barcode Scanner</h1> */}
         {/* <ScanbotScanner /> */}
-        <BarcodeScanComponent />
+        <h1>Zxing Scanner</h1>
+        <ZxingScanner />
+        
       </div>
     </>
   )
