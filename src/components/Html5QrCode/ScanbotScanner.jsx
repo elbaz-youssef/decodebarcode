@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
 
+
 const ScanbotScanner = () => {
   const [scannedResult, setScannedResult] = useState('');
   const qrCodeRegionId = "qr-reader";

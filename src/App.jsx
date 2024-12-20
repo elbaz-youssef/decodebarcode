@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import './App.css'
 import ScanbotScanner from './components/Html5QrCode/ScanbotScanner'
+import BarcodeScanComponent from './components/ReactBarCodeScanner/BarcodeScanComponent'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -10,7 +11,8 @@ function App() {
     <>
       <div>
         <h1>Scanbot Barcode Scanner</h1>
-        <ScanbotScanner />
+        {/* <ScanbotScanner /> */}
+        <BarcodeScanComponent />
       </div>
     </>
   )
